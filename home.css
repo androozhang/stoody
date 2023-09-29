@@ -1,0 +1,104 @@
+/* LOGIN */
+.main {
+  position: relative;
+}
+html,body {
+  color: black;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  background-color: #f7f7f7;
+  font-family: sans-serif;
+}
+#wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  text-align: center;
+  padding: 2rem;
+}
+.center-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h1{
+  font-size: 2rem;
+  color: #07001f;
+  margin-bottom: 1.2rem;
+}
+form input{
+  width: 25%;
+  outline: none;
+  border: 1px solid rgb(213, 213, 213);
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #ffffff;
+}
+#signupinp{
+  background-color: #5e5ef7;
+  border: 0;
+  padding: 1rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  width: 27%;
+  box-shadow: 10px 10px rgba(0,0,0,0.5);
+}
+#signupinp:hover{
+  background: #5757e5;
+  cursor: pointer;
+}
+#create-account-btn{
+  background-color: white;
+  border: 1px solid lightGray;
+  padding: 1rem;
+  border-radius:8px;
+  font-weight: 600;
+  width: 27%;
+  margin-top: 1%;
+box-shadow: 10px 10px rgba(0,0,0,0.5);
+}
+#create-account-btn:hover{
+  background-color: rgb(244, 244, 244);
+  cursor: pointer;
+}
+input:focus{
+  border: 1px solid rgb(192,192,192);
+}
+.terms{
+  margin-top: 0.2rem;
+}
+.terms input{
+  height: 1em;
+  width: 1em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.terms label{
+  font-size:0.7rem ;
+
+}
+.terms a{
+color:rgb(17,107,143) ;
+text-decoration: none;
+}
+.member{
+  font-size: 0.8rem;
+  margin-top: 1.4rem;
+  color: #636363;
+}
+.member a{
+  color: rgb( 17,107,143);
+  text-decoration: none;
+}
+
+.account{
+  text-align: right;
+  z-index: 5;
+}
+
+.advice{
+  font-size: 12px;
+}

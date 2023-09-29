@@ -1,0 +1,60 @@
+#quoteDiv,
+#quoteGenerator {
+  position: relative;
+  z-index: 9;
+  left: 225px;
+  top: 20px;
+  text-align: center;
+  padding: 1px;
+  cursor: grab;
+}
+
+#quoteDiv,
+#quoteGenerator:hover {
+  cursor: grabbing;
+}
+
+#quoteContainer {
+  width: 400px; /* Adjust this value as needed */
+  background-color: #ffffff;
+  box-shadow: 0 20px 65px rgba(87, 11, 16, 0.5);
+  position: relative;
+  border-radius: 8px;
+  text-align: center;
+  overflow: hidden; /* Add this property */
+}
+
+#quoteContainer:after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 120%;
+  background-color: #ffffff;
+  z-index: -1;
+  top: -10%;
+  left: 10%;
+}
+
+#quoteContainer p {
+  color: #000000;
+  line-height: 2;
+  font-size: 18px;
+}
+
+#quoteContainer h3 {
+  color: #ffffff;
+  margin: 20px 0 60px 0;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+#quoteContainer button {
+  background-color: #ffffff;
+  border: none;
+  padding: 15px 45px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  cursor: pointer;
+}

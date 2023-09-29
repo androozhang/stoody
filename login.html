@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Login Page</title>
+    <style>
+		iframe {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+    <iframe src="index.html"></iframe>
+    <div class="main">
+        <div class="wrapper">
+        <form onsubmit="login(event)">
+            <h1>Login</h1>
+            <div>
+                <input type="text" name="" placeholder="Email" id="email">
+            </div>
+            <div>
+                <input type="password" name="" placeholder="Password" id="password">
+            </div>
+            <button  id="signupinp">Sign In</button>
+            
+        </form>
+        <div>
+            <button id="create-account-btn" onclick="window.location.href = 'home.html';">Create New Account</button>
+        </div>
+    </div>
+</div>
+</body>
+<script type="module" src="login.js"></script>
+</html>

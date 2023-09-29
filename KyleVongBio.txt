@@ -1,0 +1,5 @@
+Hello, My name is Kyle Vong and I am a 1st year Computer Science student 
+at Drexel University. I am currently working on a project called Stoody, a 
+website that allows students to customize their ideal study environment 
+and encourages more productive and collaborative activities.
+

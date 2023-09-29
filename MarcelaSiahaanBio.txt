@@ -1,0 +1,4 @@
+My name is Marcela Siahaan. I am a first year software engineering student at Drexel 
+University. I am working on a webapp called stoody that allows students to customize 
+their ideal study environment and encourages more productive and collaborative 
+activities.

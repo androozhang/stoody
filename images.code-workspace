@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"name": "images",
+			"path": "../../../Desktop/gethelp 5/images"
+		},
+		{
+			"name": "stoody",
+			"path": "."
+		},
+		{
+			"name": "images",
+			"path": "../../../Desktop/gethelp/images"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "stoody"
+	}
+}

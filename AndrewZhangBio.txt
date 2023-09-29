@@ -1,0 +1,2 @@
+Hello, my name is Andrew Zhang. I am a first-year computer science major at Drexel University. I am currently working on Stoody, a website that is meant to help students study with their ideal 
+environment. 

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Stoody</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="quotegenerator.css" />
+
+  <!-- Pomodoro fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Noto+Serif&display=swap" rel="stylesheet">
+  <link
+  href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+  rel="stylesheet"/>
+  <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  <script src="https://kit.fontawesome.com/fe77d1c242.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="login.js" type="module"></script>
+  <script src="user.js" type="module"></script>
+
+
+</head>
+<body>
+  <div id="calendar" draggable="true">
+    <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+    <div class="calendar">
+      <div class="front">
+        <div class="current-date">
+          <h1>Monday 29th</h1>
+          <h1>May 2023</h1>
+        </div>
+  
+            <div class="current-month">
+              <ul class="week-days">
+                <span>MON</span>
+                <span>TUE</span>
+                <span>WED</span>
+                <span>THU</span>
+                <span>FRI</span>
+                <span>SAT</span>
+                <span>SUN</span>
+              </ul>
+  
+              <div class="weeks">
+                <div class="first">
+                  <span class="last-month">31</span>
+                  <span>01</span>
+                  <span>02</span>
+                  <span>03</span>
+                  <span>04</span>
+                  <span>05</span>
+                  <span>06</span>
+                </div>
+  
+                <div class="second">
+                  <span>07</span>
+                  <span>08</span>
+                  <span>09</span>
+                  <span>10</span>
+                  <span>11</span>
+                  <span>12</span>
+                  <span>13</span>
+                </div>
+  
+                <div class="third">
+                  <span>14</span>
+                  <span>15</span>
+                  <span>16</span>
+                  <span>17</span>
+                  <span>18</span>
+                  <span>19</span>
+                  <span>20</span>
+                </div>
+  
+                <div class="fourth">
+                  <span>21</span>
+                  <span>22</span>
+                  <span>23</span>
+                  <span>24</span>
+                  <span>25</span>
+                  <span>26</span>
+                  <span>27</span>
+                </div>
+  
+                <div class="fifth">
+                  <span>28</span>
+                  <span>29</span>
+                  <span>30</span>
+                  <span>31</span>
+                  <span class="last-month">1</span>
+                  <span class="last-month">2</span>
+                  <span class="last-month">3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="back">
+            <input placeholder="What's the event?">
+            <div class="info">
+              <div class="date">
+                <p class="info-date">
+                Date: <span>Jan 15th, 2016</span>
+                </p>
+                <p class="info-time">
+                  Time: <span>6:35 PM</span>
+                </p>
+              </div>
+              <div class="address">
+                <p>
+                  Address: <span>129 W 81st St, New York, NY</span>
+                </p>
+              </div>
+              <div class="observations">
+                <p>
+                  Observations: <span>Be there 15 minutes earlier</span>
+                </p>
+              </div>
+            </div>
+  
+            <div class="actions">
+              <button class="save">
+                Save <i class="ion-checkmark"></i>
+              </button>
+              <button class="dismiss">
+                Dismiss <i class="ion-android-close"></i>
+              </button>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Hide the calendar initially
+    document.addEventListener("DOMContentLoaded", function() {
+      var calendar = document.getElementById("calendar");
+      calendar.style.display = "none";
+    });
+  
+    function toggleCalendar() {
+      var calendar = document.getElementById("calendar");
+      if (calendar.style.display === "none") {
+        calendar.style.display = "block";
+      } else {
+        calendar.style.display = "none";
+      }
+    }
+
+  </script>
+  
+  
+  <div id="mydiv">
+    <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+    <div id="mydivheader">
+      <button class ='button' id="pomodoro"> Pomodoro </button>
+      <div class="container" id="yer">
+        <div class="row">
+          <div class="col-5">
+            <h4 style="font-size: 28px;" id= 'min'></h4>
+          </div>
+          <div class="col-2">
+            <h3 style="font-family: 'Acme', sans-serif; font-size: 30px;">:</h3>
+          </div>
+          <div class="col-5">
+            <h4 style="font-size: 28px" id = 'sec'></h4>
+          </div>
+
+
+        </div>
+
+        <button class = 'btn' id = 'upbtn'><i class="fas fa-arrow-up fa-2x"></i></button>
+        <button class = 'btn' id = 'downbtn'><i class = 'fas fa-arrow-down fa-2x'></i></button>
+        <button class = 'btn' id = 'startbtn'><i class = 'fas fa-play fa-2x'></i></button>
+        <button class = 'btn' id = 'resetbtn'><i class='fas fa-redo-alt fa-2x'></i></a>
+      
+        <!-- Buttons -->
+
+        
+      </div>
+
+    </div>
+  </div>
+  <img src="StoodyLogo/stoodyWatermark.png" class="logo">
+<!--Quote Generator-->
+
+<div id="quoteDiv">
+  <div id="quoteGenerator">
+      <div class="container" id="quoteContainer">
+        <p id="quote"></p>
+        <p id="author"></p>
+        <button id="btn">Get Quote</button>
+      </div>
+  </div>
+</div>
+  
+  <div id="mydiv2">
+    <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+    <div id="mydivheader2">
+      <div id="myDIV" class="header">
+        
+        <h2>My Tasks</h2>
+        <input type="text" id="myInput" placeholder="New task">
+        <span onclick="newElement()" class="addBtn">Add</span>
+        
+      </div>
+      
+      <ul id="myUL">
+        
+      </ul>
+
+
+        </div>
+        
+        
+      </div>
+      <!-- Trigger/Open The Modal -->
+
+      <script>
+      function goToFlashcards() {
+        window.location.href = "flashcards.html";
+  }</script>
+
+      <div class="side-panel">
+        <button class="icon-btn" style="color: #333333;" onclick="help()"><i class="fas fa-question-circle"></i></button>
+        <button class="icon-btn" style="color: #333333;" onclick="toggleCalendar()"><i class="fas fa-calendar"></i></button>
+        <button class="icon-btn" style="color: #333333;" onclick="timerAppear()"><i class="fas fa-clock"></i></button>
+        <button class="icon-btn" style="color: #333333;" onclick="toDoAppear()"><i class="fas fa-list"></i></button>
+        <button class="icon-btn" style="color: #333333;" onclick="goToFlashcards()"><i class="fa fa-sticky-note-o"></i></button>
+        <div class="dropdown">
+          <audio id="mySong"></audio>
+          <button class="icon-btn dropdown-btn" onclick="toggleMusicDropdown()"><i class="fas fa-music"></i></button>
+          <div class="music-content">
+            <button style="color: #333333;" onclick="TrainMusic()"><i class="fa fa-train">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTrain </i></button>
+            <button style="color: #333333;" onclick="LofiMusic()"><i class="fas fa-tv">&nbsp&nbsp&nbsp&nbsp&nbspLofi </i></button>
+            <button style="color: #333333;" onclick="RainMusic()"><i class="fa fa-leaf">&nbsp&nbsp&nbsp&nbsp&nbspNature </i></button>
+            <button style="color: #333333;" onclick="RainMusic()"><i class="fa fa-tint">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspOcean&nbspWaves </i></button>
+            <button style="color: #333333;" onclick="SubwaySurfersMusic()"><i class="fa fa-train">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSubway&nbspSurfers </i></button>
+            <button style="color: #333333;" onclick="PlayPauseButton()" id="play-pause-button"><i class='fa fa-pause'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPause</i></button>
+            <input type="range" id="volume-control" oninput="changeVolume()" max="500">
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="icon-btn dropdown-btn" onclick="toggleDropdown()"><i class="fas fa-image"></i></button>
+          <div class="dropdown-content">
+            <button style="color: #333333;" onclick="studywithme()"> <i class="fas fa-book">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStudy with me </i></button>
+            <button style="color: #333333;" onclick="nature()"><i class="fas fa-tree">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspNature </i></button>
+            <button style="color: #333333;" onclick="anime()"><i class="fas fa-tv">&nbsp&nbsp&nbsp&nbspAnime </i></button>
+            <button style="color: #333333;" onclick="cafe()"><i class="fas fa-coffee">&nbsp&nbsp&nbsp&nbsp&nbspCafe </i></button>
+            <button style="color: #333333;" onclick="animal()"><i class="fas fa-cat">&nbsp&nbsp&nbsp&nbsp&nbspAnimal </i></button>
+            <button style="color: #333333;" onclick="city()"><i class="fas fa-building">&nbsp&nbsp&nbsp&nbsp&nbspCity </i></button>
+          </div>
+        </div>
+        <button class="icon-btn" id="quoteButton" style="color: #333333;" onclick="quoteAppear()"><i class="fa fa-quote-left"></i></button>
+        
+        <button class="icon-btn" style="color: #333333;" id="user-info"><i class="fas fa-user"></i></button>
+         
+      </div>
+      
+      
+      <div class="video-container" >
+        <iframe id="myvideo" width="420" height="315"
+        src="https://www.youtube.com/embed/Y2dVQIFD6Bc?controls=0&modestbranding=1&autoplay=1&start=1&mute=1&loop=1&showinfo=0" frameborder="0">
+        </iframe>
+      </div>   
+    
+    
+    
+      <div class="video-container" >
+        <iframe id="myvideo" width="420" height="315"
+        src="" frameborder="0">
+        </iframe>
+      </div>  
+   
+  
+<!-- Interactable Buttons At the Top of the Website-->
+
+  
+  
+  <script src="pomodoroTimer.js"></script>
+</body>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script  src="script.js"></script>
+  <script>  
+  
+    function randomNumber(){
+      console.log("random number function");
+      console.log( Math.round(  Math.random() *255 )  );
+
+         
+      // create random image number  
+      function getRandomNum(min, max)   
+      {  
+          // generate and return a random number for the image to be displayed   
+          imgNo = Math.floor(Math.random() * (max - min + 1)) + min;  
+          return newArray[imgNo];  
+      }    
+      
+      // 0 is first image and (preBuffer.length - 1) is last image of the array  
+      var newImage = getRandomNum(0, newArray.length - 1);  
+       
+      // remove the previous images  
+      var images = document.getElementsByTagName('img');  
+      var l = images.length;  
+      for (var p = 0; p < l; p++) {  
+         images[0].parentNode.removeChild(images[0]);  
+      }  
+      // display the new random image    
+      document.body.appendChild(newImage);  
+    }  
+    
+    
+
+    function toggleMusicDropdown() {
+      var dropdownContent = document.querySelector(".music-content");
+      var dropdownButton = document.querySelector(".dropdown-btn");
+      dropdownContent.classList.toggle("show");
+      
+      // Check if the dropdown is open
+      if (dropdownContent.classList.contains("show")) {
+        dropdownButton.style.color = "#bae8e8"; // Blue color when dropdown is open
+      } else {
+        dropdownButton.style.color = "#333333"; // Default color when dropdown is closed
+      }
+  }
+      function TrainMusic() {
+        var mySong = document.getElementById("mySong");
+        var dropdownButton = document.querySelector(".dropdown-btn");
+        var button = document.getElementById("play-pause-button");
+        
+        if (mySong.paused) {
+          mySong.src = "downloadedAudio/train.mp3";
+          mySong.loop = true;
+          mySong.play();
+          dropdownButton.style.color = "#bae8e8";
+          button.innerHTML = "<i class='fa fa-pause' style='color: #333333;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pause</i>";
+          var dropdownButton = document.querySelector(".dropdown-btn");
+          dropdownButton.style.color = "#bae8e8";
+        } else {
+          mySong.pause();
+          dropdownButton.style.color = "";
+        }
+    }
+    function SubwaySurfersMusic() {  
+      var mySong = document.getElementById("mySong");
+        var dropdownButton = document.querySelector(".dropdown-btn");
+        var button = document.getElementById("play-pause-button");
+        if (mySong.paused) {
+          mySong.src = "downloadedAudio/subwaySurfers.mp3";
+          mySong.loop = true;
+          mySong.play();
+          dropdownButton.style.color = "#bae8e8";
+          button.innerHTML = "<i class='fa fa-pause' style='color: #333333;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pause</i>";
+          var dropdownButton = document.querySelector(".dropdown-btn");
+          dropdownButton.style.color = "#bae8e8";
+        } else {
+          mySong.pause();
+          dropdownButton.style.color = "";
+        }
+    }
+    function RainMusic() {  
+      var mySong = document.getElementById("mySong");
+        var dropdownButton = document.querySelector(".dropdown-btn");
+        var button = document.getElementById("play-pause-button");
+        
+        if (mySong.paused) {
+          mySong.src = "downloadedAudio/Rain.mp3";
+          mySong.loop = true;
+          mySong.play();
+          dropdownButton.style.color = "#bae8e8";
+          button.innerHTML = "<i class='fa fa-pause' style='color: #333333;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pause</i>";
+          var dropdownButton = document.querySelector(".dropdown-btn");
+          dropdownButton.style.color = "#bae8e8";
+        } else {
+          mySong.pause();
+          dropdownButton.style.color = "";
+        }
+    }
+    function OceanMusic() {  
+      var mySong = document.getElementById("mySong");
+        var dropdownButton = document.querySelector(".dropdown-btn");
+        var button = document.getElementById("play-pause-button");
+        if (mySong.paused) {
+          mySong.src = "downloadedAudio/Ocean.mp3";
+          mySong.loop = true;
+          mySong.play();
+          dropdownButton.style.color = "#bae8e8";
+          button.innerHTML = "<i class='fa fa-pause' style='color: #333333;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pause</i>";
+          var dropdownButton = document.querySelector(".dropdown-btn");
+          dropdownButton.style.color = "#bae8e8";
+        } else {
+          mySong.pause();
+          dropdownButton.style.color = "";
+        }
+    }
+    function LofiMusic() {  
+      var mySong = document.getElementById("mySong");
+        var dropdownButton = document.querySelector(".dropdown-btn");
+        var button = document.getElementById("play-pause-button");
+        
+        if (mySong.paused) {
+          mySong.src = "downloadedAudio/Lofi.mp3";
+          mySong.loop = true;
+          mySong.play();
+          dropdownButton.style.color = "#bae8e8";
+          button.innerHTML = "<i class='fa fa-pause' style='color: #333333;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pause</i>";
+          var dropdownButton = document.querySelector(".dropdown-btn");
+          dropdownButton.style.color = "#bae8e8";
+        } else {
+          mySong.pause();
+          dropdownButton.style.color = "";
+        }
+        
+    }
+    function PlayPauseButton(){
+    var audio = document.getElementById("mySong");
+    var button = document.getElementById("play-pause-button");
+    if (audio.paused) {
+      audio.play();
+      button.innerHTML = "<i class='fa fa-pause' style='color: #333333;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pause</i>";
+      var dropdownButton = document.querySelector(".dropdown-btn");
+      dropdownButton.style.color = "#bae8e8";
+    }
+    else {
+      audio.pause();
+      button.innerHTML = "<i class='fa fa-play' style='color: #333333;'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Play</i>";
+      var dropdownButton = document.querySelector(".dropdown-btn");
+      dropdownButton.style.color = "#000408";
+  }
+}
+
+    function changeVolume() {
+      var volume = document.getElementById("volume-control").value;
+      var mySong = document.getElementById("mySong");
+      mySong.volume = volume / 500;
+    }
+    function goToFlashcards() {
+      window.location.href = "flashcards.html";
+}
+    
+
+    var studyvideos = [
+      "https://www.youtube.com/embed/Y2dVQIFD6Bc?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+      "https://www.youtube.com/embed/KVmxdVv__tc?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+      "https://www.youtube.com/embed/CXyWPFqQpz4?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+      "https://www.youtube.com/embed/yYn-uHnLeGQ?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1?start=4&showinfo=0",
+      "https://www.youtube.com/embed/V9JKThFZmio?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1?start=5&showinfo=0",
+      "https://www.youtube.com/embed/aEVzzr3S0HA?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+      "https://www.youtube.com/embed/jHvWJXkc67o?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0" ,
+      "https://www.youtube.com/embed/LG9D9UtaDYw?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0" ,
+
+
+    ];
+
+    var naturevideos = [
+      "https://www.youtube.com/embed/DuT99SoS6S8?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+      "https://www.youtube.com/embed/YQc4WT0yDH4?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0=",
+      "https://www.youtube.com/embed/jEnd8JIMii4?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1?start=105&showinfo=0",
+      "https://www.youtube.com/embed/Y8ACyHYsb6Q?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+      "https://www.youtube.com/embed/eoTpdTU8nTA?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+    ];
+
+    var animevideos = [
+      "https://www.youtube.com/embed/6tHOKZGZL5s?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+      "https://www.youtube.com/embed/z9Ug-3qhrwY?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+      "https://www.youtube.com/embed/GrG2-oX5z24?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+      "https://www.youtube.com/embed/W5KJsQMKbwM?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+      "https://www.youtube.com/embed/CeItO4-ARfk?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+      "https://www.youtube.com/embed/cu959m5z07Q?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+      "https://www.youtube.com/embed/vpPtCfONDH8?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&showinfo=0",
+
+    ];
+    var cafevideos = [
+      "https://www.youtube.com/embed/_iv5SrpLM9A?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1&start=34&showinfo=0" ,
+      "https://www.youtube.com/embed/2XK0zoPWdi4?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1" ,
+      "https://www.youtube.com/embed/s_m1QKaQXVc?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1" ,
+      
+
+    ];
+
+    var animalvideos = [
+      "https://www.youtube.com/embed/uYJQIKAVBw8?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1" , 
+      "https://www.youtube.com/embed/5iAIVtPHMmw?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1" ,
+      "https://www.youtube.com/embed/LJao7hVNPuM?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1" ,
+      "https://www.youtube.com/embed/hDg8efGo3uY?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1" ,
+
+    ]
+    var cityvideos = [
+    "https://www.youtube.com/embed/rqJDO3TWnac?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1" ,
+    "https://www.youtube.com/embed/eR5vsN1Lq4E?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1" , 
+    "https://www.youtube.com/embed/ZqJxv5PiPJo?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1" ,
+    "https://www.youtube.com/embed/0nTO4zSEpOs?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1" ,
+    "https://www.youtube.com/embed/ZWY6h_WwXzA?start=28?controls=0&modestbranding=1&autoplay=1&mute=1&loop=1" ,
+
+
+
+    ]
+
+    function changeVideo() {
+      var randomIndex = Math.floor(Math.random() * videos.length);
+      var videoElement = document.getElementById("myvideo");
+      videoElement.src = videos[randomIndex];
+    }
+    function studywithme() {
+      var randomIndex = Math.floor(Math.random() * studyvideos.length);
+      var videoElement = document.getElementById("myvideo");
+      videoElement.src = studyvideos[randomIndex]; 
+    }
+    function nature() {
+      var randomIndex = Math.floor(Math.random() * naturevideos.length);
+      var videoElement = document.getElementById("myvideo");
+      videoElement.src = naturevideos[randomIndex];
+    }
+    function anime () {
+      var randomIndex = Math.floor(Math.random() * animevideos.length);
+      var videoElement = document.getElementById("myvideo");
+      videoElement.src = animevideos[randomIndex];
+    }
+
+    function cafe () {
+      var randomIndex = Math.floor(Math.random() * cafevideos.length);
+      var videoElement = document.getElementById("myvideo");
+      videoElement.src = cafevideos[randomIndex];
+    }
+
+    function animal() {
+      var randomIndex = Math.floor(Math.random() * animalvideos.length);
+      var videoElement = document.getElementById("myvideo");
+      videoElement.src = animalvideos[randomIndex];
+    }
+
+    function city () {
+      var randomIndex = Math.floor(Math.random() * cityvideos.length);
+      var videoElement = document.getElementById("myvideo");
+      videoElement.src = cityvideos[randomIndex];
+    }
+
+    function help () {
+      window.location.href = "help.html";
+    }
+
+    
+    </script>
+  </html>
