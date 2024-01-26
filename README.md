@@ -2,6 +2,8 @@
 
 Stoody is a study website designed to help you stay focused, organized, and motivated during your study sessions. It provides various features to enhance your productivity and create a conducive environment for learning.
 
+https://stoodywithme.netlify.app/login.html
+
 ## Features
 
 - Pomodoro Timer: Use the built-in Pomodoro timer to break your study sessions into focused intervals, improving your concentration and productivity.
